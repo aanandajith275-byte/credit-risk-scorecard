@@ -110,5 +110,4 @@ axes[1, 1].set_xlabel("CSI Metric")
 axes[1, 1].legend(loc="lower right")
 
 plt.tight_layout()
-plt.savefig("dashboard.png", dpi=300, bbox_inches="tight")
 plt.show()
