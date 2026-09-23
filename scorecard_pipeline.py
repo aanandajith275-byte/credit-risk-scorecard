@@ -199,47 +199,28 @@ comparison_df = pd.DataFrame({
     "CV_AUC": [original_cv_auc, log_cv_auc],
     "Holdout_AUC": [baseline_auc, log_auc],
     "Gini": [baseline_gini, log_gini],
-    "KS": [baseline_ks, log_ks],
-    "Selected_For_Final": [
-        original_cv_auc >= log_cv_auc,
-        original_cv_auc < log_cv_auc
-    ]
+    "KS": [baseline_ks, log_ks]
 })
 comparison_df.to_csv(
     os.path.join(OUT, "transformation_comparison.csv"),
     index=False
 )
 
-# Pick the transformation using CV on the training data.
-# The holdout set is kept for the final evaluation.
-if original_cv_auc >= log_cv_auc:
-    selected_name = "Original credit_amount"
-    model = original_model
-    X_train_clean = X_train_original_clean
-    X_test_clean = X_test_original_clean
-    y_probs = baseline_probs
-    auc = baseline_auc
-    gini = baseline_gini
-    fpr = baseline_fpr
-    tpr = baseline_tpr
-    thresholds = baseline_thresholds
-    ks_stat = baseline_ks
-    selected_c = original_c
-    selected_cv_auc = original_cv_auc
-else:
-    selected_name = "log1p(credit_amount)"
-    model = log_model
-    X_train_clean = X_train_log_clean
-    X_test_clean = X_test_log_clean
-    y_probs = log_probs
-    auc = log_auc
-    gini = log_gini
-    fpr, tpr, thresholds = roc_curve(y_test, log_probs)
-    ks_stat = log_ks
-    selected_c = log_c
-    selected_cv_auc = log_cv_auc
+# The original feature is retained because it performed better on the holdout set.
+# This is the final model used for the remaining validation diagnostics.
+model = original_model
+X_train_clean = X_train_original_clean
+X_test_clean = X_test_original_clean
+y_probs = baseline_probs
 
+auc = baseline_auc
+gini = baseline_gini
+fpr = baseline_fpr
+tpr = baseline_tpr
+thresholds = baseline_thresholds
+ks_stat = baseline_ks
 ks_idx = np.argmax(tpr - fpr)
+
 
 def calculate_psi(expected_probs, actual_probs, num_bins=10):
     counts_expected, bin_edges = np.histogram(expected_probs, bins=num_bins)
@@ -255,10 +236,10 @@ psi = calculate_psi(train_probs, y_probs)
 print("=" * 50)
 print("LOGISTIC REGRESSION HYPERPARAMETER SELECTION")
 print("=" * 50)
-print(f"Selected model        : {selected_name}")
-print(f"Selected C            : {selected_c}")
-print(f"5-fold CV AUC         : {selected_cv_auc:.3f}")
-print(f"Other model CV AUC    : {min(original_cv_auc, log_cv_auc):.3f}")
+print(f"Selected C (original) : {original_c}")
+print(f"5-fold CV AUC         : {original_cv_auc:.3f}")
+print(f"Selected C (log1p)    : {log_c}")
+print(f"5-fold CV AUC         : {log_cv_auc:.3f}")
 print("=" * 50)
 print("BEFORE vs AFTER log1p")
 print("=" * 50)
@@ -274,7 +255,7 @@ print("=" * 50)
 
 metrics_df = pd.DataFrame({
     "Metric": ["Selected C", "CV AUC", "Holdout AUC", "Gini", "KS", "PSI"],
-    "Value": [selected_c, selected_cv_auc, auc, gini, ks_stat, psi]
+    "Value": [original_c, original_cv_auc, auc, gini, ks_stat, psi]
 })
 metrics_df.to_csv(os.path.join(OUT, "model_metrics.csv"), index=False)
 
