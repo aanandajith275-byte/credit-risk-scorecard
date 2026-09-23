@@ -63,6 +63,18 @@ The transformation was kept only if it improved holdout performance.
 
 ![Numerical Feature Distributions](outputs/numerical_distributions.png)
 
+### Correlation Heatmap
+
+The correlation heatmap was used to check relationships between the numerical variables and the target. For example, **duration** and **credit_amount** show a moderate positive relationship.
+
+![Numerical Correlation Heatmap](outputs/numerical_correlation.png)
+
+### Scatter Plots
+
+Selected scatter plots were used to look at relationships between important numerical variables and to check how much the Good and Bad classes overlap.
+
+![Selected Feature Relationships](outputs/selected_relationships.png)
+
 ### Credit Amount: Before vs After log1p
 
 ![Credit Amount Before and After log1p](outputs/credit_amount_transformation.png)
