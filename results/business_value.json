@@ -1,0 +1,54 @@
+{
+ "taiwan": {
+  "approval_rate": 0.8,
+  "lgd": 0.75,
+  "n_test": 6000,
+  "avg_loss_per_approved_bad_ntd": 34884.733133433285,
+  "challengers": {
+   "gbm": {
+    "bads_avoided_per_10k": 41.666666666666664,
+    "bads_avoided_ci95": [
+     13.333333333333332,
+     65.0
+    ],
+    "loss_saving_per_applicant_ntd": -22.53,
+    "loss_saving_ci95_ntd": [
+     -146.02820312499998,
+     138.89845312499997
+    ],
+    "loss_saving_per_applicant_usd": -0.7040625
+   },
+   "gbm_monotone": {
+    "bads_avoided_per_10k": 23.333333333333336,
+    "bads_avoided_ci95": [
+     -3.333333333333333,
+     48.333333333333336
+    ],
+    "loss_saving_per_applicant_ntd": 116.39925,
+    "loss_saving_ci95_ntd": [
+     -96.959728125,
+     304.25371562499987
+    ],
+    "loss_saving_per_applicant_usd": 3.6374765625
+   },
+   "stack": {
+    "bads_avoided_per_10k": 36.666666666666664,
+    "bads_avoided_ci95": [
+     13.333333333333332,
+     65.0
+    ],
+    "loss_saving_per_applicant_ntd": -14.6585,
+    "loss_saving_ci95_ntd": [
+     -136.572390625,
+     145.891078125
+    ],
+    "loss_saving_per_applicant_usd": -0.458078125
+   }
+  }
+ },
+ "german": {
+  "bayes_cutoff": 0.16666666666666666,
+  "cost_reject_all": 0.7,
+  "cost_accept_all": 1.5
+ }
+}

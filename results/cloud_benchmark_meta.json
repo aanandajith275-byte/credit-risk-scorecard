@@ -1,0 +1,8 @@
+{
+ "bare_python_start_ms": 17.6992080000673,
+ "bare_python_rss_mb": 12.40234375,
+ "cold_fraction": 0.01,
+ "price_per_request": 2.0000000000000002e-07,
+ "price_per_gb_s": 1.66667e-05,
+ "vcpu_mb": 1769
+}

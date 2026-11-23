@@ -1,0 +1,22 @@
+{
+ "challenger": "gbm_monotone",
+ "n_test": 6000,
+ "auc_challenger": 0.7792957861633902,
+ "auc_champion": 0.7592373156185439,
+ "delta_auc": 0.02005847054484633,
+ "se_paired": 0.0033887345008870376,
+ "se_unpaired": 0.010775493470829104,
+ "delong_p": 3.235849187262029e-09,
+ "labelled_needed_shadow": 1344.1210525190972,
+ "labelled_needed_ab": 27181.137448856378,
+ "approved_only": {
+  "auc_challenger": 0.6726435959373327,
+  "auc_champion": 0.6325784603464055,
+  "delta_auc": 0.04006513559092717,
+  "se_paired": 0.0073979640657544365,
+  "delong_p": 6.105023682398716e-08,
+  "n": 4800,
+  "labelled_needed_shadow": 1284.5177598424702
+ },
+ "efficiency_ratio_ab_over_shadow": 20.222239208228004
+}

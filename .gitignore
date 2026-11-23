@@ -3,3 +3,6 @@ __pycache__/
 venv/
 .venv/
 .vscode/
+.pytest_cache/
+# fitted challengers are reproducible with experiments/run_benchmark.py (the deployed pair lives in service/model/)
+models/

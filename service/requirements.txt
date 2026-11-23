@@ -1,0 +1,7 @@
+flask>=3.0
+pydantic>=2.5
+gunicorn>=22.0
+# shadow challenger (omit these three and set SHADOW_CHALLENGER=0 for the minimal champion image)
+pandas>=2.0
+scikit-learn==1.9.1
+joblib>=1.3

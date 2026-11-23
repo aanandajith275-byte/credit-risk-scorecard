@@ -1,0 +1,28 @@
+{
+ "features": [
+  "PAY_1",
+  "max_delinquency_6",
+  "PAY_2",
+  "PAY_3",
+  "PAY_4",
+  "PAY_5",
+  "PAY_6",
+  "LIMIT_BAL",
+  "PAY_AMT1",
+  "PAY_AMT2",
+  "PAY_AMT3",
+  "PAY_AMT4",
+  "PAY_AMT6",
+  "utilisation_avg6",
+  "PAY_AMT5",
+  "utilisation_1",
+  "EDUCATION"
+ ],
+ "C": 0.03,
+ "dropped_for_sign": [
+  "pay_ratio_1",
+  "months_delinquent_6"
+ ],
+ "factor": 28.85390081777927,
+ "offset": 487.1228762045055
+}

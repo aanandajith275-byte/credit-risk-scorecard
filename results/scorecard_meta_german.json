@@ -1,0 +1,21 @@
+{
+ "features": [
+  "checking_status",
+  "credit_history",
+  "duration_months",
+  "savings",
+  "purpose",
+  "property",
+  "employment_since",
+  "housing",
+  "other_installment_plans",
+  "credit_amount",
+  "age",
+  "foreign_worker",
+  "installment_rate"
+ ],
+ "C": 1.0,
+ "dropped_for_sign": [],
+ "factor": 28.85390081777927,
+ "offset": 487.1228762045055
+}
